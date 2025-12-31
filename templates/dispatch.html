@@ -1,0 +1,132 @@
+{{template "header" .}}
+
+<div class="navbar bg-base-100 shadow-sm">
+    <div class="flex-1">
+        <a class="btn btn-ghost text-xl">Event: {{.Event.Name}}</a>
+    </div>
+    <div class="flex-none">
+        <a href="/" class="btn btn-sm btn-ghost">Exit</a>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 grid md:grid-cols-3 gap-6">
+    <div class="md:col-span-1">
+        <div class="card bg-base-100 shadow-lg sticky top-4">
+            <div class="card-body">
+                <h2 class="card-title text-sm uppercase text-gray-500">New Ticket</h2>
+
+                <form action="/ticket/add" method="POST" class="flex flex-col gap-3">
+                    <input type="hidden" name="event_id" value="{{.Event.ID}}">
+
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Pickup</span></label>
+                        <input type="text" name="origin" list="common-locations" placeholder="Start Location" class="input input-bordered w-full" required />
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Dropoff</span></label>
+                        <input type="text" name="destination" list="common-locations" placeholder="End Location" class="input input-bordered w-full" required />
+                    </div>
+
+                    <button class="btn btn-primary w-full mt-2">Dispatch</button>
+                </form>
+
+                <datalist id="common-locations">
+                    <option value="Central Park">
+                    <option value="Valley Library">
+                    <option value="Public Library">
+                    <option value="Farmer's Market">
+                </datalist>
+
+                <div class="divider"></div>
+
+                <div class="bg-base-200 p-3 rounded-box">
+                    <h3 class="font-bold text-xs mb-2 text-gray-500 uppercase">Share Dispatch Board</h3>
+                    <div class="join w-full">
+                        <input id="share-link" type="text" class="input input-xs input-bordered join-item w-full text-gray-500" readonly>
+                        <button onclick="copyLink()" class="btn btn-xs btn-neutral join-item" id="copy-btn">Copy</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="md:col-span-2 flex flex-col gap-4">
+        {{range .Tickets}}
+        <div class="card bg-base-100 shadow-md border-l-4 {{if eq .Status "Delivered"}}border-success{{else if eq .Status "In Transit"}}border-warning{{else}}border-error{{end}}">
+            <div class="card-body p-5">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="badge {{if eq .Status "Delivered"}}badge-success{{else if eq .Status "In Transit"}}badge-warning{{else}}badge-error{{end}} gap-2">
+                            {{.Status}}
+                        </div>
+                        <h3 class="font-bold mt-2 text-lg">{{.Origin}}</h3>
+                        <div class="pl-2 ml-1 border-l-2 border-gray-200">
+                             <p class="text-sm text-gray-500">to</p>
+                             <h3 class="font-bold text-lg">{{.Destination}}</h3>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-2 min-w-[120px]">
+                        {{if eq .Status "Pending"}}
+                        <form action="/ticket/claim" method="POST" class="flex flex-col gap-2">
+                            <input type="hidden" name="ticket_id" value="{{.ID}}">
+                            <input type="hidden" name="event_id" value="{{.EventID}}">
+                            <input type="text" name="courier_name" placeholder="Rider Name" class="input input-sm input-bordered w-full" required>
+                            <button class="btn btn-sm btn-neutral w-full">Claim Run</button>
+                        </form>
+                        {{else if eq .Status "In Transit"}}
+                        <div class="text-right">
+                            <span class="text-xs font-bold uppercase text-gray-400 block mb-1">Rider</span>
+                            <span class="text-sm font-bold block mb-3">{{.Courier}}</span>
+                            <form action="/ticket/update" method="POST">
+                                <input type="hidden" name="ticket_id" value="{{.ID}}">
+                                <input type="hidden" name="event_id" value="{{.EventID}}">
+                                <input type="hidden" name="status" value="Delivered">
+                                <button class="btn btn-sm btn-outline btn-success w-full">Finish</button>
+                            </form>
+                        </div>
+                        {{else}}
+                        <div class="text-right">
+                            <span class="text-xs text-gray-400 uppercase">Completed By</span>
+                            <div class="font-bold">{{.Courier}}</div>
+                        </div>
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="text-center py-10 opacity-50">
+            <p>No tickets yet. Dispatcher, add one!</p>
+        </div>
+        {{end}}
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("share-link").value = window.location.href;
+    });
+
+    function copyLink() {
+        var copyText = document.getElementById("share-link");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+
+        navigator.clipboard.writeText(copyText.value).then(function() {
+            const btn = document.getElementById("copy-btn");
+            const originalText = btn.innerText;
+            btn.innerText = "Copied!";
+            btn.classList.add("btn-success");
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove("btn-success");
+            }, 2000);
+        });
+    }
+</script>
+
+{{template "footer" .}}

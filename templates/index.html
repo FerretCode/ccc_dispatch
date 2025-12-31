@@ -1,0 +1,60 @@
+{{template "header" .}}
+<div class="flex flex-col items-center justify-center min-h-screen p-4">
+    <div class="card w-full max-w-md bg-base-100 shadow-xl">
+        <figure class="px-10 pt-10">
+            <div class="avatar placeholder">
+                <div class="bg-neutral text-neutral-content rounded-full w-24">
+                    <span class="text-3xl">🚴</span>
+                </div>
+            </div>
+        </figure>
+        <div class="card-body items-center text-center">
+            <h2 class="card-title text-2xl font-bold">CCC Dispatch</h2>
+            <p class="text-sm text-gray-500">
+                Corvallis Courier Collective • Corvallis, OR
+            </p>
+
+            <div class="flex flex-col w-full gap-3 mt-4">
+                <a href="/partner" class="btn btn-outline btn-primary w-full"
+                    >Partner/Request a Delivery</a
+                >
+                <a
+                    href="https://discord.gg/cwdafewZNM"
+                    class="btn btn-outline btn-secondary w-full"
+                    >Ride With Us</a
+                >
+                <a
+                    href="https://discord.gg/cwdafewZNM"
+                    class="btn btn-outline btn-secondary w-full"
+                    >Join the Discord</a
+                >
+                <a href="" class="btn btn-outline btn-secondary w-full"
+                    >Instagram</a
+                >
+                <a
+                    href="/group-rides"
+                    class="btn btn-outline btn-secondary w-full"
+                    >Group Rides</a
+                >
+            </div>
+
+            <div class="divider">DISPATCH</div>
+
+            <form action="/new-event" method="POST" class="w-full">
+                <div class="join w-full">
+                    <input
+                        name="name"
+                        class="input input-bordered join-item w-full"
+                        placeholder="Event Name (e.g., Food Deliveries)"
+                        required
+                    />
+                    <button class="btn btn-neutral join-item">Create</button>
+                </div>
+                <p class="text-xs text-left mt-2 text-gray-400">
+                    Creates a private dispatch board.
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+{{template "footer" .}}
