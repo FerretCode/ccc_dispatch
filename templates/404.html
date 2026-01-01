@@ -1,0 +1,31 @@
+{{template "header" .}}
+<div class="flex flex-col items-center justify-center min-h-screen p-4">
+    <div class="card w-full max-w-md bg-base-100 shadow-xl">
+        <figure class="px-10 pt-10">
+            <div class="avatar placeholder">
+                <div class="bg-neutral text-neutral-content rounded-full w-24">
+                    <img src="/img/logo.png" alt="CCC Logo" />
+                </div>
+            </div>
+        </figure>
+        <div class="card-body items-center text-center">
+            <h2 class="card-title text-2xl font-bold">CCC Dispatch</h2>
+            <p class="text-sm text-gray-500">
+                Corvallis Courier Collective • Corvallis, OR
+            </p>
+
+            <div class="flex flex-col w-full gap-3 mt-4">
+                <h1 class="text-xl">404 - Page Not Found</h1>
+
+                <h3 class="text-md">
+                    Sorry, the page you are looking for does not exist.
+                </h3>
+
+                <a href="/" class="btn btn-outline btn-secondary w-full"
+                    >Back to Home</a
+                >
+            </div>
+        </div>
+    </div>
+</div>
+{{template "footer" .}}

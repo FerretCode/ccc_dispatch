@@ -1,0 +1,282 @@
+{{template "header" .}}
+<div class="flex flex-col items-center justify-center min-h-screen p-4 py-8">
+    <div class="text-center mb-8">
+        <div class="avatar placeholder mb-4">
+            <div class="bg-neutral text-neutral-content rounded-full w-20">
+                <img src="/img/logo.png" alt="CCC Logo" />
+            </div>
+        </div>
+        <h1 class="text-3xl font-bold mb-2">Group Rides</h1>
+        <p class="text-sm text-gray-500">
+            Corvallis Courier Collective • Corvallis, OR
+        </p>
+    </div>
+
+    <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div
+            class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow"
+        >
+            <div class="card-body">
+                <h2 class="card-title text-xl">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-primary"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                    </svg>
+                    Clock-In Ride
+                </h2>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-gray-600 mb-3">
+                    Short, no-drop group ride at a steady pace. Stop at (most)
+                    lights & regroup often. Feel free to split. All bikes
+                    welcome
+                </p>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 text-primary"
+                            width="200"
+                            height="200"
+                            viewBox="0 0 1024 1024"
+                        >
+                            <path
+                                fill="#000000"
+                                d="M515.664-.368C305.76-.368 128 178.4 128 390.176c0 221.76 206.032 448.544 344.624 607.936c.528.64 22.929 25.52 50.528 25.52h2.449c27.6 0 49.84-24.88 50.399-25.52c130.064-149.52 320-396.048 320-607.936C896 178.4 757.344-.368 515.664-.368zm12.832 955.552c-1.12 1.12-2.753 2.369-4.193 3.409c-1.472-1.008-3.072-2.288-4.255-3.408l-16.737-19.248C371.92 785.2 192 578.785 192 390.176c0-177.008 148.224-326.56 323.664-326.56c218.528 0 316.336 164 316.336 326.56c0 143.184-102.128 333.296-303.504 565.008zm-15.377-761.776c-106.032 0-192 85.968-192 192s85.968 192 192 192s192-85.968 192-192s-85.968-192-192-192zm0 320c-70.576 0-129.473-58.816-129.473-129.408c0-70.576 57.424-128 128-128c70.624 0 128 57.424 128 128c.032 70.592-55.903 129.408-126.527 129.408z"
+                            />
+                        </svg>
+                        <span class="font-semibold">Meet: </span> Central Park @
+                        Weekday TBD
+                    </div>
+
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 text-primary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"
+                            />
+                        </svg>
+                        <span class="font-semibold">Pace:</span> Moderate (12-15
+                        mph)
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 text-primary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                        </svg>
+                        <span class="font-semibold">Distance:</span> 5 miles
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 text-primary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                            />
+                        </svg>
+                        <span class="font-semibold">Level:</span> All levels
+                        welcome
+                    </div>
+                </div>
+                <div class="card-actions justify-end mt-4">
+                    <a
+                        href="https://ridewithgps.com/routes/53619291"
+                        class="btn btn-primary w-full"
+                    >
+                        View RWGPS Route
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 ml-1"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow"
+        >
+            <div class="card-body">
+                <h2 class="card-title text-xl">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-secondary"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                        />
+                    </svg>
+                    Errand Ride
+                </h2>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-gray-600 mb-3">
+                    Casual, no-pressure social ride that goes by common spots
+                    for errands. Feel free to peel off & do your own tasks, and
+                    we will regroup after.
+                </p>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 text-primary"
+                            width="200"
+                            height="200"
+                            viewBox="0 0 1024 1024"
+                        >
+                            <path
+                                fill="#000000"
+                                d="M515.664-.368C305.76-.368 128 178.4 128 390.176c0 221.76 206.032 448.544 344.624 607.936c.528.64 22.929 25.52 50.528 25.52h2.449c27.6 0 49.84-24.88 50.399-25.52c130.064-149.52 320-396.048 320-607.936C896 178.4 757.344-.368 515.664-.368zm12.832 955.552c-1.12 1.12-2.753 2.369-4.193 3.409c-1.472-1.008-3.072-2.288-4.255-3.408l-16.737-19.248C371.92 785.2 192 578.785 192 390.176c0-177.008 148.224-326.56 323.664-326.56c218.528 0 316.336 164 316.336 326.56c0 143.184-102.128 333.296-303.504 565.008zm-15.377-761.776c-106.032 0-192 85.968-192 192s85.968 192 192 192s192-85.968 192-192s-85.968-192-192-192zm0 320c-70.576 0-129.473-58.816-129.473-129.408c0-70.576 57.424-128 128-128c70.624 0 128 57.424 128 128c.032 70.592-55.903 129.408-126.527 129.408z"
+                            />
+                        </svg>
+                        <span class="font-semibold">Meet: </span> Central Park @
+                        Weekends TBD
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 text-secondary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"
+                            />
+                        </svg>
+                        <span class="font-semibold">Pace:</span> Relaxed (8-12
+                        mph)
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 text-secondary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                        </svg>
+                        <span class="font-semibold">Distance:</span> 4-5 miles
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 text-secondary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                            />
+                        </svg>
+                        <span class="font-semibold">Level:</span> Beginner
+                        friendly
+                    </div>
+                </div>
+                <div class="card-actions justify-end mt-4">
+                    <a
+                        href="https://ridewithgps.com/routes/53620455"
+                        class="btn btn-secondary w-full"
+                    >
+                        View RWGPS Route
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 ml-1"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-8 text-center">
+        <p class="text-sm text-gray-500">
+            Click on any ride card to view the route on RideWithGPS
+        </p>
+    </div>
+</div>
+{{template "footer" .}}

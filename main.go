@@ -44,11 +44,14 @@ func main() {
 	tmpl = template.Must(template.ParseGlob("templates/*.html"))
 
 	http.HandleFunc("/", handleIndex)
+	http.HandleFunc("/group-rides", handleGroupRides)
+	http.HandleFunc("/partner", handlePartner)
 	http.HandleFunc("/new-event", handleNewEvent)
 	http.HandleFunc("/e/", handleEventDispatch)
 	http.HandleFunc("/ticket/add", handleAddTicket)
 	http.HandleFunc("/ticket/claim", handleClaimTicket)
 	http.HandleFunc("/ticket/update", handleUpdateTicket)
+	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("./img"))))
 
 	log.Println("Server started on http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
@@ -78,7 +81,19 @@ func createTables() {
 }
 
 func handleIndex(w http.ResponseWriter, r *http.Request) {
-	tmpl.ExecuteTemplate(w, "index.html", nil)
+	if r.URL.Path == "/" {
+		tmpl.ExecuteTemplate(w, "index.html", nil)
+	} else {
+		tmpl.ExecuteTemplate(w, "404.html", nil)
+	}
+}
+
+func handleGroupRides(w http.ResponseWriter, r *http.Request) {
+	tmpl.ExecuteTemplate(w, "group-rides.html", nil)
+}
+
+func handlePartner(w http.ResponseWriter, r *http.Request) {
+	tmpl.ExecuteTemplate(w, "partner.html", nil)
 }
 
 func handleNewEvent(w http.ResponseWriter, r *http.Request) {
