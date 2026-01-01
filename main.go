@@ -46,6 +46,7 @@ func main() {
 	http.HandleFunc("/", handleIndex)
 	http.HandleFunc("/group-rides", handleGroupRides)
 	http.HandleFunc("/partner", handlePartner)
+	http.HandleFunc("/roadmap", handleRoadmap)
 	http.HandleFunc("/new-event", handleNewEvent)
 	http.HandleFunc("/e/", handleEventDispatch)
 	http.HandleFunc("/ticket/add", handleAddTicket)
@@ -94,6 +95,10 @@ func handleGroupRides(w http.ResponseWriter, r *http.Request) {
 
 func handlePartner(w http.ResponseWriter, r *http.Request) {
 	tmpl.ExecuteTemplate(w, "partner.html", nil)
+}
+
+func handleRoadmap(w http.ResponseWriter, r *http.Request) {
+	tmpl.ExecuteTemplate(w, "roadmap.html", nil)
 }
 
 func handleNewEvent(w http.ResponseWriter, r *http.Request) {
